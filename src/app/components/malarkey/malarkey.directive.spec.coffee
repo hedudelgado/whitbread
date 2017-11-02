@@ -1,20 +1,11 @@
-###
-@todo Complete the test
-This example is not perfect.
-The `link` function is not tested.
-(malarkey usage, addClass, $watch, $destroy)
-###
 describe 'directive malarkey', () ->
   vm = undefined
   element = element
 
   beforeEach module 'whitbread'
 
-  beforeEach inject ($compile, $rootScope, githubContributor, $q) ->
-    spyOn(githubContributor, 'getContributors').and.callFake () ->
-      $q.when [{}, {}, {}, {}, {}, {}]
-
-    element = angular.element '<acme-malarkey extra-values="[\'Poney\', \'Monkey\']"></acme-malarkey>'
+  beforeEach inject ($compile, $rootScope, $q) ->
+    element = angular.element '<acme-malarkey></acme-malarkey>'
 
     $compile(element) $rootScope.$new()
     $rootScope.$digest()
@@ -24,10 +15,7 @@ describe 'directive malarkey', () ->
     expect(element.html()).not.toEqual null
 
   it 'should have isolate scope object with instanciate members', () ->
-    expect(vm).toEqual jasmine.any Object
+    expect(vm.statement).toEqual jasmine.any Object
 
-    expect(vm.contributors).toEqual jasmine.any Array
-    expect(vm.contributors.length).toEqual 6
-
-  it 'should log a info', inject ($log) ->
-    expect($log.info.logs).toEqual jasmine.stringMatching 'Activated Contributors View'
+    expect(vm.statement).toEqual jasmine.any Array
+    expect(vm.statement.length).toEqual 2

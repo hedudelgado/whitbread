@@ -1,26 +1,14 @@
 angular.module 'whitbread'
   .directive 'acmeMalarkey', ->
 
-    MalarkeyController = ($log, githubContributor) ->
+    MalarkeyController = () ->
       'ngInject'
       vm = this
 
-      activate = ->
-        getContributors().then ->
-          $log.info 'Activated Contributors View'
-          return
-
-      getContributors = ->
-        githubContributor.getContributors(10).then (data) ->
-          vm.contributors = data
-          vm.contributors
-
-      vm.contributors = []
-      activate()
+      vm.statement = ['With ♥','Thanks for the opportunity of showing my skills']
       return
 
     linkFunc = (scope, el, attr, vm) ->
-      watcher = undefined
       typist = malarkey(el[0],
         typeSpeed: 40
         deleteSpeed: 40
@@ -31,9 +19,9 @@ angular.module 'whitbread'
       angular.forEach scope.extraValues, (value) ->
         typist.type(value).pause().delete()
         return
-      watcher = scope.$watch('vm.contributors', ->
-        angular.forEach vm.contributors, (contributor) ->
-          typist.type(contributor.login).pause().delete()
+      watcher = scope.$watch('vm.statement', ->
+        angular.forEach vm.statement, (sentence) ->
+          typist.type(sentence).pause().delete()
           return
         return
       )
