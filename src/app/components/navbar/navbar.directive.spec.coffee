@@ -3,7 +3,7 @@ describe 'directive navbar', () ->
   element = undefined
   timeInMs = undefined
 
-  beforeEach module 'whitbreadTest'
+  beforeEach module 'whitbread'
 
   beforeEach inject ($compile, $rootScope) ->
     element = angular.element "<acme-navbar></acme-navbar>"
