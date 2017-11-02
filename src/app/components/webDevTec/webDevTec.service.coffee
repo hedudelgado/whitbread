@@ -33,12 +33,6 @@ angular.module 'whitbread'
         'logo': 'karma.png'
       },
       {
-        'title': 'Protractor',
-        'url': 'https://github.com/angular/protractor',
-        'description': 'End to end test framework for AngularJS applications built on top of WebDriverJS.',
-        'logo': 'protractor.png'
-      },
-      {
         'title': 'Bootstrap',
         'url': 'http://getbootstrap.com/',
         'description': 'Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.',
