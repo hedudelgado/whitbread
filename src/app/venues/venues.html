@@ -1,0 +1,38 @@
+<div class="container">
+  <div id="venues">
+    <div class="row">
+      <h1 class="text-center">Venues</h1>
+      <div class="container">
+        <div ng-if='!main.loading' class="row">
+          <div class="col-md-offset-3 col-lg-3">
+            <div class="input-group">
+              <input type="text" class="form-control" ng-model="main.city" placeholder="Search for city">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" ng-click="main.fetchVenues()" type="button">Go!</button>
+              </span>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <span ng-init="main.number = main.numbers[0]" class="muted-text"><em>{{altInputFormats[0]}}</em></span></label> <select class="form-control" ng-model="main.number" ng-options="n for n in main.numbers" required><option></option></select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-if='main.loading' class="position-loader">
+        <div class="loader"></div>
+      </div>
+      <div ng-if="main.displayNoResults && !main.loading" class="text-center top-buffer"><h4>No Venues on this city..</h4></div>
+      <div ng-if='!main.loading' class="col-sm-6 col-md-4 top-buffer" ng-repeat="venue in main.venues">
+        <div class="thumbnail">
+          <img class="pull-right" ng-src="assets/images/{{ venue.logo }}" alt="{{ venue.title }}">
+          <div class="caption">
+            <h3>{{ venue.name }}</h3>
+            <p>{{ venue.contact.formattedPhone }}</p>
+            <p>{{ venue.location.address }}, {{ venue.location.postalCode }}</p>
+            <p><a ng-href="{{venue.url}}">{{ venue.url }}</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
