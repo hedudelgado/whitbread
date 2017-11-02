@@ -4,18 +4,25 @@
       <h1 class="text-center">Venues</h1>
       <div class="container">
         <div ng-if='!main.loading' class="row">
-          <div class="col-md-offset-3 col-lg-3">
-            <div class="input-group">
-              <input type="text" class="form-control" ng-model="main.city" placeholder="Search for city">
-              <span class="input-group-btn">
-                <button class="btn btn-secondary" ng-click="main.fetchVenues()" type="button">Go!</button>
-              </span>
+          <form name="myForm">    
+            <div class="col-md-offset-2 col-lg-3">
+              <div class="input-inline">
+                <input type="text" class="form-control" ng-model="main.venueType" placeholder="what are you looking for.." required>
+              </div>
             </div>
-          </div>
-          <div class="col-lg-3">
-            <span ng-init="main.number = main.numbers[0]" class="muted-text"><em>{{altInputFormats[0]}}</em></span></label> <select class="form-control" ng-model="main.number" ng-options="n for n in main.numbers" required><option></option></select>
+            <div class="col-lg-3">
+              <div class="">
+                <input type="text" class="form-control" ng-model="main.city" placeholder="where.." required>
+              </div>
             </div>
-          </div>
+            <span>
+              <button class="btn btn-primary" ng-click="main.fetchVenues()" type="button" ng-disabled="myForm.$invalid"><span class="glyphicon glyphicon-search"></span></button>
+            </span>
+            <div class="col-lg-2">
+              <span ng-init="main.number = main.numbers[0]" class="muted-text"></span></label> <select class="form-control" ng-model="main.number" ng-options="n for n in main.numbers" required><option></option></select>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
       <div ng-if='main.loading' class="position-loader">

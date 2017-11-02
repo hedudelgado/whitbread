@@ -6,7 +6,7 @@ angular.module 'whitbread'
     fetchVenues = () ->
       vm.loading = true
       vm.displayNoResults = false
-      venuesSvc.getPopularVenues(vm.city, vm.number).then((result) ->
+      venuesSvc.getPopularVenues(vm.city, vm.number, vm.venueType).then((result) ->
         vm.loading = false
         if result.data
           vm.venues = result.data.response.venues
