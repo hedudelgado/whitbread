@@ -1,5 +1,5 @@
 angular.module 'whitbread'
-  .controller 'MainController', ($timeout, webDevTec, toastr) ->
+  .controller 'MainController', ($timeout, $location, webDevTec, toastr) ->
     'ngInject'
     vm = this
     activate = ->
@@ -10,21 +10,20 @@ angular.module 'whitbread'
       ), 4000
       return
 
-    showToastr = ->
-      toastr.info 'Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>'
+    goToVenues = ->
+      $location.path('/venues')
       vm.classAnimation = ''
       return
 
     getWebDevTec = ->
-      vm.awesomeThings = webDevTec.getTec()
-      angular.forEach vm.awesomeThings, (awesomeThing) ->
-        awesomeThing.rank = Math.random()
+      vm.techStacks = webDevTec.getTec()
+      angular.forEach vm.techStacks, (stack) ->
+        stack.rank = Math.random()
         return
       return
 
-    vm.awesomeThings = []
+    vm.techStacks = []
     vm.classAnimation = ''
-    vm.creationDate = 1509612453350
-    vm.showToastr = showToastr
+    vm.goToVenues = goToVenues
     activate()
     return
