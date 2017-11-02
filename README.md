@@ -34,17 +34,6 @@ gulp serve
 gulp test
 ```
 
-## Improvements
-
-* Test coverage
-* Venues should be a component
-* Add end to end tests
-* Use states instead in the routeProvider
-* Rework constants that must be secret, they were left into this repo due to the lack of time and the fact that its not VERY sensitive data, it should never be exposed to public
-* Use Restangular instead of $http
-* Improvement of the services
-* Deployment
-
 # ANDigital Coding Exercise
 
 This test is designed to provide a real-world scenario for you to autonomously complete to the best of your ability.
@@ -78,3 +67,13 @@ You can display the results as you see fit, be it a properly formatted JSON with
 * [OK]  Use a test runner to run the tests.
 * [PLANNED]  Create a deployable artifact or deploy within a container.
 
+## Improvements
+
+* Test coverage
+* Venues should be a component
+* Add end to end tests
+* Use states instead in the routeProvider
+* Rework constants that must be secret, they were left into this repo due to the lack of time and the fact that its not VERY sensitive data, it should never be exposed to public
+* Use Restangular instead of $http
+* Improvement of the services
+* Deployment
