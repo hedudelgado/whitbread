@@ -1,5 +1,5 @@
 angular.module 'whitbread'
-  .service 'venuesSvc', (rootUrl, filter, amount, loc, query, client_id, client_secret) ->
+  .service 'venuesSvc', ($http, toastr, rootUrl, filter, amount, loc, query, client_id, client_secret) ->
     'ngInject'
     
     _self = @
